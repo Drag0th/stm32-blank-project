@@ -1,0 +1,20 @@
+
+{
+    "version": "2.0.0",
+    "configurations": [
+        {
+            "name": "Debug Firmware with ST-LINK",
+            "type": "stlinkgdbtarget",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "preBuild": "${command:st-stm32-ide-debug-launch.build}",
+            "runEntry": "main",
+            "imagesAndSymbols": [
+                {
+                    "imageFileName": "${workspaceFolder}/build/Debug/Firmware.elf"
+                }
+            ],
+            "verbose": false
+        }
+    ]
+}

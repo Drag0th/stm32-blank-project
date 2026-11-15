@@ -1,0 +1,30 @@
+
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Flash Firmware with ST-LINK",
+            "linux": {
+                "command": "${command:st-stm32-ide-debug-launch.get-programmer-path}/STM32_Programmer_CLI",
+                "args": [
+                    "-c",
+                    "port=SWD",
+                    "-d",
+                    "${workspaceFolder}/build/Release/Firmware.elf",
+                    "-hardRst",
+                    "-rst",
+                    "--start"
+                ]
+            },
+            "windows": {
+                "command": "& '${command:st-stm32-ide-debug-launch.get-programmer-path}/STM32_Programmer_CLI.exe' -c port=SWD -d '${workspaceFolder}/build/Release/Firmware.elf' -hardRst -rst --start"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": []
+        }
+    ]
+}
